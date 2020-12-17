@@ -99,13 +99,12 @@ public class KNNAgent extends Agent {
                     nuevaDistancia = distanciaManhattan(datasetKNN.getDatos().getRow(i), instanciaPrediccion);
                 }
 
-                //System.out.println("Nueva dist:" + nuevaDistancia);
                 for (int j=0;j <K; j++)
                 {
                     if (nuevaDistancia < distanciasMinimas[j])
                     {
                         insertInPlace(1,j,nuevaDistancia);
-                        insertInPlace(2,j,i); //se puede mandar directamente el int como un doble? niceee
+                        insertInPlace(2,j,i);
                         break;
                     }
                 }
@@ -186,32 +185,6 @@ public class KNNAgent extends Agent {
             datos = MatrixUtils.createRealMatrix(dataIN);
             labels = labelsIN;
         }
-
-//            public Dataset()
-//            {
-//                double[][] datosDouble = {
-//                        {158.0,58.0},
-//                        {158.0,59.0},
-//                        {158,63},
-//                        {160,59},
-//                        {160,60},
-//                        {163,60},
-//                        {163,61},
-//                        {160,64},
-//                        {163,64},
-//                        {165,61},
-//                        {165,62},
-//                        {165,65},
-//                        {168,62},
-//                        {168,63},
-//                        {168,66},
-//                        {170,63},
-//                        {170,64},
-//                        {170,68}
-//                };
-//                datos = MatrixUtils.createRealMatrix(datosDouble);
-//                labels = new String[]{"M", "M", "M", "M", "M", "M", "M", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L", "L"};
-//            }
 
         public RealMatrix getDatos ()
         {
